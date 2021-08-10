@@ -9,18 +9,16 @@
         echo "<pre>";
         die(print_r($var)); 
     }
-    function getUrl($modulo,$controlador,$funcion,$parametros=false,$delete=false){
+    function getUrl($modulo,$controlador,$funcion,$parametros=false,$pagina=false){
         //modulos=carpeta dentro del controlador
         //controlador=archivos dentro del modulo
         //funcion=metodos dentro del controlador
-        $url="index.php?modulo=$modulo&controlador=$controlador&funcion=$funcion";
+        if ($pagina==false) {
+            $pagina="index";
+        }
+        $url="$pagina.php?modulo=$modulo&controlador=$controlador&funcion=$funcion";
         if ($parametros!=false) {
             foreach($parametros as $key=>$valor){
-                $url.="&$key=$valor";
-            }
-        }
-        if ($delete!=false) {
-            foreach($delete as $key=>$valor){
                 $url.="&$key=$valor";
             }
         }

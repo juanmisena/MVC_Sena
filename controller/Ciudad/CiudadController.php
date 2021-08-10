@@ -29,6 +29,13 @@
             $ciudades=$obj->consult($sql);
             include_once '../view/Ciudad/consult.php';
         }
+        public function filtro(){
+            $obj=new CiudadModel();
+            $buscar=$_POST['buscar'];
+            $sql="SELECT ciudad.ciu_id, ciudad.ciu_nombre, ciudad.ciu_imagen, departamento.dep_nombre FROM ciudad, departamento WHERE departamento.dep_id=ciudad.dep_id AND (ciudad.ciu_nombre LIKE '%$buscar%' OR departamento.dep_nombre LIKE '%$buscar%')";
+            $ciudades=$obj->consult($sql);
+            include_once '../view/Ciudad/filtro.php';
+        }
         public function getUpdate(){
             $obj=new CiudadModel();
             $ciu_id=$_GET['ciu_id'];
