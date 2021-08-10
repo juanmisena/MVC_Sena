@@ -24,7 +24,7 @@
         }
         public function filtro(){
             $obj=new DepartamentoModel();
-            $dep_id=$_POST['buscar'];
+            $buscar=$_POST['buscar'];
             $sql="SELECT departamento.dep_id, departamento.dep_nombre FROM departamento WHERE departamento.dep_nombre LIKE '%$buscar%'";
             $departamentos=$obj->consult($sql);
             include_once '../view/Departamento/filtro.php';
