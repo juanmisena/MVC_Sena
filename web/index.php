@@ -1,9 +1,5 @@
 <?php
     include_once '../lib/helpers.php';
-    session_start();
-    if (isset($_SESSION['usu_nickname'])) {
-        //header("location:login.php");
-    
     include_once '../view/partials/head.php';
     echo "<body>";
         echo "<div class='container'>";
@@ -28,5 +24,4 @@
     include_once '../view/partials/footer.php';
     echo "</body>";
     echo "</html>";
-}
 ?>
