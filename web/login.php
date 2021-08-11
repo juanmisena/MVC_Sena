@@ -14,7 +14,7 @@
     <div class="container">
         <div class="mt-5">
             <div class="col-md-4 m-auto">
-                <form action="<?php echo getUrl("Acceso","Acceso","login");?>" method="post">
+                <form action="<?php echo getUrl("Acceso","Acceso","login",false,"ajax");?>" method="post">
                     <h3>Inicio de Sesion</h3>
                     <div class="mt-4 form-group">
                         <label for="">Nombre de Usuario o Correo</label>

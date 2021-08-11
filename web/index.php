@@ -1,9 +1,11 @@
 <?php
     include_once '../lib/helpers.php';
-    if(!$_SESSION['nombre']){
-        redirect("login.php");
-    }
     include_once '../view/partials/head.php';
+    if (isset($_SESSION['auth'])) {
+        if ($_SESSION['auth']!="ok") {
+            redirect("login.php");
+        }
+    }
     echo "<body>";
         echo "<div class='container'>";
         require_once '../view/partials/navbar.php';

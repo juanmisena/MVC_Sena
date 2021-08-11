@@ -12,6 +12,7 @@
                     $_SESSION['nombre']=$usu['usu_nombre'];
                     $_SESSION['apellido']=$usu['usu_apellido'];
                     $_SESSION['id']=$usu['usu_id'];
+                    $_SESSION['auth']="ok";
                 }
                 redirect("index.php");
             }else{
