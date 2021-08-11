@@ -5,6 +5,8 @@
         if ($_SESSION['auth']!="ok") {
             redirect("login.php");
         }
+    }else {
+        redirect("login.php");
     }
     echo "<body>";
         echo "<div class='container'>";
