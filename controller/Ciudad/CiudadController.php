@@ -50,7 +50,16 @@
             $ciu_id=$_POST["ciu_id"];
             $ciu_nombre=$_POST["ciu_nombre"];
             $dep_id=$_POST['dep_id'];
-            $sql="UPDATE ciudad SET ciu_nombre='$ciu_nombre', dep_id=$dep_id WHERE ciu_id=$ciu_id";
+            if (isset($_FILES['ciu_imagen']['name'])) {
+                $ciu_imagen=$_FILES['ciu_imagen']['name'];
+                $ruta="img/$ciu_imagen";
+                move_uploaded_file($_FILES['ciu_imagen']['tmp_name'],$ruta);
+                $sql="UPDATE ciudad SET ciu_nombre='$ciu_nombre', dep_id=$dep_id, ciu_imagen='$ruta' WHERE ciu_id=$ciu_id";
+                $ruta_imagen_vieja=$_POST['ruta_imagen_vieja'];
+                unlink($ruta_imagen_vieja);
+            } else {
+                $sql="UPDATE ciudad SET ciu_nombre='$ciu_nombre', dep_id=$dep_id WHERE ciu_id=$ciu_id";
+            }
             $ejecutar=$obj->update($sql);
             if ($ejecutar) {
                 redirect(getUrl("Ciudad","Ciudad","consult"));

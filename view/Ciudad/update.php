@@ -4,7 +4,7 @@
 <?php
     while($ciu=mysqli_fetch_assoc($ciudad)){
 ?>
-<form action="<?php echo getUrl("Ciudad","Ciudad","postUpdate");?>" method="post">
+<form action="<?php echo getUrl("Ciudad","Ciudad","postUpdate");?>" method="post" enctype="multipart/form-data">
     <div class="row">
         <div class="col-md-4">
             <label for="">Ciudad</label>
@@ -24,6 +24,13 @@
                     }
                 ?>
             </select>
+        </div>
+        <div class="col-md-4">
+            <label>Imagen</label>
+            <div id="contenedorImagen">
+                <img class="d-block" id="imagen" src="<?php echo $ciu['ciu_imagen'];?>" width="100px">
+                <button class="btn btn-primary" id="cambioImagen">Cambiar Imagen</button>
+            </div>
         </div>
     </div>
     <div class="row mt-4">

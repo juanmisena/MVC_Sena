@@ -11,4 +11,9 @@ $(document).ready(function(){
             }
         });
     });
+    $(document).on("click","#cambioImagen",function(){
+        var ruta_imagen_vieja=$("#imagen").attr('src');
+        $("#contenedorImagen").html("<input type='file' name='ciu_imagen'>");
+        $("#contenedorImagen").append("<input type='hidden' name='ruta_imagen_vieja' value='"+ruta_imagen_vieja+"'>");
+    });
 });
